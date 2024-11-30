@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Concatenación de promesas</title>
+</head>
+
+<!-- 
+•	primeraTarea: devuelve el valor 10.
+•	segundaTarea: recibe el valor de primeraTarea, lo multiplica por 2 y devuelve el nuevo valor.
+•	terceraTarea: recibe el valor de segundaTarea, le suma 5 y devuelve el nuevo valor.
+Encadena estas promesas usando then y muestra el resultado final en la consola. -->
+
+<body>
+    <script>
+
+        function primeraTarea() {
+            let promesa = new Promise(function (resolver, rechazar) {
+                resolver(10);
+            })
+            return promesa;
+        }
+
+        function segundaTarea(valor) {
+            let promesa = new Promise(function (resolver, rechazar) {
+                let resultado = valor * 2;
+                resolver(resultado);
+            })
+            return promesa;
+        }
+
+        function terceraTarea(valor) {
+            let promesa = new Promise(function (resolver, rechazar) {
+                let resultado = valor + 5;
+                resolver(resultado);
+            })
+            return promesa;
+        }
+
+        primeraTarea()
+        .then((resultadoPrimera)=>{
+            console.log(resultadoPrimera);
+            return segundaTarea(resultadoPrimera);
+        })
+        .then((resultadoSegunda)=>{
+            console.log(resultadoSegunda);
+            return terceraTarea(resultadoSegunda);
+        })
+        .then((resultadoTercera)=>{
+            console.log(resultadoTercera)
+        })
+        .catch((error)=>{
+            console.error('Algo ha pasado:', error)
+        });
+    </script>
+</body>
+
+</html>

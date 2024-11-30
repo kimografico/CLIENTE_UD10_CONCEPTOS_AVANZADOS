@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Promesas</title>
+</head>
+
+<body>
+
+    <!-- Crea una función simulaProceso(exito) que devuelva una promesa.
+    La promesa debe resolverse con el mensaje "Proceso exitoso" si exito es true,
+    y rechazarse con el mensaje "Hubo un error" si exito es false.
+    Prueba la función llamándola con un bloque then-catch y con async-await
+    usando tanto casos exitosos como casos fallidos. -->
+
+    <script>
+        function simulaProceso(exito) {
+            return new Promise(function(resolver, rechazar) {
+                if (exito) {
+                    resolver("Proceso exitoso");
+                } else {
+                    rechazar("Hubo un error");
+                }
+            });
+        }
+    
+        // Llamada usando .then() y .catch()
+        simulaProceso(true) 
+            .then(function(resultado) {
+                console.log(resultado); 
+            })
+            .catch(function(error) {
+                console.error(error); 
+            });
+    
+        // Llamada usando async/await
+        async function simulaProcesoAwait() {
+            try {
+                let resultado = await simulaProceso(true);
+                console.log(resultado);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    
+        simulaProcesoAwait();
+    </script>
+    
+
+</body>
+
+</html>

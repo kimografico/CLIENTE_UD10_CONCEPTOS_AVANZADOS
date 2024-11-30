@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 3 - EXORT/IMPORT</title>
+</head>
+<body>
+
+    <script type="module">
+        import { temporizador, cuenta } from "./temporizador.js";
+        
+        let parrafo1 = document.createElement('p');
+        parrafo1.id = "cuentatras1";
+        let parrafo2 = document.createElement('p');
+        parrafo2.id = "cuentatras2";
+        document.body.appendChild(parrafo1);
+        document.body.appendChild(parrafo2);
+
+        cuenta(6, cuentatras1.id);
+        cuenta(60, cuentatras2.id, 100, ()=>{
+            document.getElementById('cuentatras2').innerHTML = 'FIN';
+        });
+    </script>
+</body>
+</html>

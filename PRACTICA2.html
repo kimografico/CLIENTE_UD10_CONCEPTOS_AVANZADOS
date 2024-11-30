@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2 - Promesa Timeout</title>
+</head>
+
+<body>
+    <script>
+        let segundos = 5;
+        let promesa = new Promise((resolver, rechazar) => {
+            let temporizador = setTimeout(() => {
+                resolver('Todo OK');
+            }, (segundos * 1000));
+            setTimeout(() => {
+                clearTimeout(temporizador);
+                rechazar('Algo salió mal');
+            }, (segundos * 1000 * 2));
+        });
+        promesa
+            .then((resolver)=>{
+                console.log(resolver);
+            })
+            .catch((rechazar)=>{
+                console.error(rechazar)
+            });
+        
+    </script>
+</body>
+
+</html>

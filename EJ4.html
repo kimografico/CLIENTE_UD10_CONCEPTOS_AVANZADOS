@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Modulos</title>
+</head>
+<body>
+<!-- Crea un módulo calculadora.js que exporte funciones básicas de
+una calculadora: suma, resta, multiplica y divide.
+Importa las funciones en otro archivo y usa cada una con valores de prueba. -->
+
+<script type="module">
+    import { suma, resta, multiplica, divide } from "./calculadora.js";  // Tengo que ejecutarlo desde localhost por la politica CORS
+
+    console.log (suma(5,5));
+    console.log (resta(5,5));
+    console.log (multiplica(5,5));
+    console.log (divide(5,5));
+</script>
+
+</body>
+</html>

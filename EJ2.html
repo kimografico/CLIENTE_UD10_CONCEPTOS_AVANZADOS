@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Errores</title>
+</head>
+
+<body>
+
+    <script>
+        function divide(a, b) {
+            if (b == 0) {
+                let miError = new Error("No se puede dividir por 0");
+                throw miError;
+                
+            } else {
+                return a / b;
+            }
+        }
+
+        try {
+            console.log(divide(6,2));
+            console.log(divide(10,2));
+            console.log(divide(5,0));
+        } catch (miError) {
+            alert(miError);
+        }
+    </script>
+
+</body>
+
+</html>
